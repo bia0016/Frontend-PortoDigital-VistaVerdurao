@@ -1,0 +1,82 @@
+.chatbot-container {
+    font-family: 'Inter', sans-serif;
+}
+
+.chatbot-float-button-container {
+    position: fixed;
+    bottom: 1.25rem; /* 20px */
+    right: 1.25rem; /* 20px */
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chatbot-hover-popup {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: 0.75rem; /* 12px */
+    width: max-content;
+    background-color: #B2B8A3; /* Verde Verdurão */
+    color: #000;
+    padding: 0.75rem; /* 12px */
+    border-radius: 0.75rem; /* 12px */
+    border-bottom-right-radius: 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(8px); /* Começa ligeiramente para baixo */
+    pointer-events: none; /* Não interage com o mouse quando invisível */
+}
+
+/* Animação do pop-up*/
+.chatbot-float-button-container:hover .chatbot-hover-popup {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chatbot-hover-popup p {
+    font-weight: 600;
+}
+
+.chatbot-open-button {
+    background-color: #B2B8A3; /* Verde Verdurão */
+    color: white;
+    padding: 1rem; /* 16px */
+    border-radius: 9999px; /* Totalmente redondo */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.chatbot-open-button:hover {
+    background-color: #a1a894; /* Tom mais escuro para o hover */
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 1.25rem; /* 20px */
+    right: 1.25rem; /* 20px */
+    width: 370px;
+    height: 600px;
+    background-color: #F9F6F1; /* Cor de fundo do site */
+    border-radius: 1rem; /* 16px */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    /* Animação de entrada da janela */
+    animation: fade-in-up 0.3s ease-out;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
