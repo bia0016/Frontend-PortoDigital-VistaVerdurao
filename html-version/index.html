@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chatbot Vista Verdurão</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BOTÃO FLUTUANTE -->
+    <button id="chat-toggle" aria-label="Abrir chat" title="Abrir chat">💬</button>
+
+    <!-- WIDGET -->
+    <div id="chat-widget" class="closed" role="dialog" aria-label="Chatbot Vista Verdurão">
+        <header class="chat-header">
+            <div class="brand">
+                <div class="avatar">A</div>
+                <div class="title">
+                    <strong>Alê</strong>
+                    <small>Assistente de Looks</small>
+                </div>
+            </div>
+            <button id="chat-close" aria-label="Fechar chat">✕</button>
+        </header>
+
+        <main id="messages" class="chat-body" aria-live="polite"></main>
+
+        <footer class="chat-footer">
+            <form id="chat-form">
+                <input id="chat-input" autocomplete="off" placeholder="Escreva uma mensagem..." />
+                <button type="submit" id="send-btn">Enviar</button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
