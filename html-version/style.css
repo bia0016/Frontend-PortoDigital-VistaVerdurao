@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: var(--fonte);
+    font-family: 'Source Sans 3';
     background: #f9f9f9;
     color: var(--texto);
 }

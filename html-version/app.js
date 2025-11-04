@@ -168,6 +168,28 @@ function simulateResponse(text) {
         });
         return;
     }
+    /*
+    if (t.includes("cor preta") || t.includes("preta")) {
+        botMessage("Ótimo! Veja algumas camisetas pretas que combinam com tudo:");
+        showProduct({
+            image: "./img/camiseta-branca.jpg",
+            title: "Camiseta Preta Clássica - R$49,90",
+            price: "R$49,90",
+            url: "#"
+        });
+        return;
+    }
+    if (t.includes("cor azul") || t.includes("azul")) {
+        botMessage("Ótimo! Veja algumas camisetas azuis que combinam com tudo:");
+        showProduct({
+            image: "./img/camiseta-branca.jpg",
+            title: "Camiseta Azul Clássica - R$49,90",
+            price: "R$49,90",
+            url: "#"
+        });
+        return;
+    }
+        */
     if (t.includes("jeans")) {
         botMessage("Jeans — estilo e conforto. Veja essas opções:");
         showProduct({
@@ -201,6 +223,29 @@ function simulateResponse(text) {
         return;
     }
 
+    /*    // perguntas de estilo/clima
+    if (t.includes("praia") || t.includes("quente")) {
+        botMessage("Para praia recomendamos roupas de banho. Deseja ver?");
+        showQuickReplies(["Sim, mostrar camisetas leves", "Não, outras opções"]);
+        return;
+    }
+    if (t.includes("festa") || t.includes("fria")) {
+        botMessage("Para festa, temos vestidos e ternos. Deseja ver?");
+        showQuickReplies(["Sim, mostrar moletons", "Não, obrigado"]);
+        return;
+    }
+    //
+    if (t.includes("formal") || t.includes("corporativo")) {
+        botMessage("Para praia recomendamos roupas de banho. Deseja ver?");
+        showQuickReplies(["Sim, mostrar camisetas leves", "Não, outras opções"]);
+        return;
+    }
+    if (t.includes("casual") || t.includes("para sair")) {
+        botMessage("Para noite fria, temos jaquetas e moletons aconchegantes. Quer ver moletons?");
+        showQuickReplies(["Sim, mostrar moletons", "Não, obrigado"]);
+        return;
+    }
+*/
     // fallback genérico
     botMessage("Entendi! Que tipo de produto você procura? (Camisetas, Calças, Acessórios, Ofertas)");
     showQuickReplies(["Camisetas", "Calças", "Acessórios", "Ofertas do dia"]);
