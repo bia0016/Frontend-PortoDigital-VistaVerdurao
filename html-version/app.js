@@ -168,7 +168,7 @@ function simulateResponse(text) {
         });
         return;
     }
-    /*
+    
     if (t.includes("cor preta") || t.includes("preta")) {
         botMessage("Ótimo! Veja algumas camisetas pretas que combinam com tudo:");
         showProduct({
@@ -180,7 +180,7 @@ function simulateResponse(text) {
         return;
     }
     if (t.includes("cor azul") || t.includes("azul")) {
-        botMessage("Ótimo! Veja algumas camisetas azuis que combinam com tudo:");
+        botMessage("Ótimo! Veja algumas camisetas azuis que você pode gostar:");
         showProduct({
             image: "./img/camiseta-branca.jpg",
             title: "Camiseta Azul Clássica - R$49,90",
@@ -189,7 +189,17 @@ function simulateResponse(text) {
         });
         return;
     }
-        */
+    if (t.includes("cor vermelha") || t.includes("vermelha")) {
+        botMessage("Ótimo! Veja algumas camisetas vermelhas que você pode gostar:");
+        showProduct({
+            image: "./img/camiseta-branca.jpg",
+            title: "Camiseta Vermelha Clássica - R$49,90",
+            price: "R$49,90",
+            url: "#"
+        });
+        return;
+    }
+        
     if (t.includes("jeans")) {
         botMessage("Jeans — estilo e conforto. Veja essas opções:");
         showProduct({
@@ -200,6 +210,17 @@ function simulateResponse(text) {
         });
         return;
     }
+    if (t.includes("moletom")) {
+        botMessage("Moletom — estilo e conforto. Veja essas opções:");
+        showProduct({
+            image: "./img/calca-jeans.jpg",
+            title: "Moletom - R$129,90",
+            price: "R$129,90",
+            url: "#"
+        });
+        return;
+    }
+    
     if (t.includes("boné") || t.includes("bones")) {
         botMessage("Bonés disponíveis:");
         showProduct({
@@ -223,29 +244,29 @@ function simulateResponse(text) {
         return;
     }
 
-    /*    // perguntas de estilo/clima
+     // perguntas de eventos/clima
     if (t.includes("praia") || t.includes("quente")) {
         botMessage("Para praia recomendamos roupas de banho. Deseja ver?");
         showQuickReplies(["Sim, mostrar camisetas leves", "Não, outras opções"]);
         return;
     }
     if (t.includes("festa") || t.includes("fria")) {
-        botMessage("Para festa, temos vestidos e ternos. Deseja ver?");
-        showQuickReplies(["Sim, mostrar moletons", "Não, obrigado"]);
+        botMessage("Para festa, temos vestidos. Deseja ver?");
+        showQuickReplies(["Sim, mostrar vestidos", "Não, obrigado"]);
         return;
     }
     //
-    if (t.includes("formal") || t.includes("corporativo")) {
-        botMessage("Para praia recomendamos roupas de banho. Deseja ver?");
-        showQuickReplies(["Sim, mostrar camisetas leves", "Não, outras opções"]);
+    if (t.includes("trabalho") || t.includes("formal")) {
+        botMessage("Para trabalho recomendamos roupa formal. Deseja ver?");
+        showQuickReplies(["Sim, mostrar roupas formais", "Não, outras opções"]);
         return;
     }
-    if (t.includes("casual") || t.includes("para sair")) {
-        botMessage("Para noite fria, temos jaquetas e moletons aconchegantes. Quer ver moletons?");
-        showQuickReplies(["Sim, mostrar moletons", "Não, obrigado"]);
+    if (t.includes("passeio") || t.includes("casual")) {
+        botMessage("Para passeio, temos roupa casual. Quer ver?");
+        showQuickReplies(["Sim, mostrar roupa casual", "Não, obrigado"]);
         return;
     }
-*/
+
     // fallback genérico
     botMessage("Entendi! Que tipo de produto você procura? (Camisetas, Calças, Acessórios, Ofertas)");
     showQuickReplies(["Camisetas", "Calças", "Acessórios", "Ofertas do dia"]);

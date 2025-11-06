@@ -152,6 +152,7 @@ body {
     cursor: pointer;
     transition: all .18s;
     font-size: 14px;
+    font-family: 'Source Sans 3';
 }
 
 .quick-btn:hover {
