@@ -15,7 +15,7 @@ OPEN_BTN.addEventListener("click", () => {
     OPEN_BTN.style.display = "none";
     if (!WIDGET.dataset.welcomed) {
         botMessage("Bem-vindo à Vista Verdurão! 🌿<br>O que você gostaria de comprar hoje?");
-        showQuickReplies(["Camisetas", "Calças", "Acessórios", "Shorts e Bermudas", "Ofertas do dia"]);
+        showQuickReplies(["Camisetas", "Vestidos", "Coleções", "Acessórios", "Ofertas do dia"]);
         WIDGET.dataset.welcomed = "1";
     }
 });
@@ -119,19 +119,33 @@ function showProduct(prod) {
 function simulateResponse(text) {
     const t = text.toLowerCase();
     // fluxos básicos
+
     if (t.includes("camiseta") || t === "camisetas") {
+        botMessage("Perfeito! Masculino ou Feminino?");
+        showQuickReplies(["Masculino", "Feminino"]);
+        return;
+    }
+    
+    if (t.includes("Masculino") || t === "masculino") {
         botMessage("Perfeito! Alguma preferência de cor?");
         showQuickReplies(["Cor Branca", "Cor Preta", "Cor Azul", "Cor Vermelha", "Estampada"]);
         return;
     }
-    if (t.includes("calça") || t === "calças") {
-        botMessage("Ótimo — quer ver jeans ou moletom?");
-        showQuickReplies(["Jeans", "Moletom"]);
+
+     if (t.includes("Feminino") || t === "feminino") {
+        botMessage("Perfeito! Alguma preferência de cor?");
+        showQuickReplies(["Cor Branca", "Cor Preta", "Cor Azul", "Cor Vermelha", "Estampada"]);
+        return;
+    }
+
+    if (t.includes("coleções") || t === "coleções") {
+        botMessage("Ótimo — Gostaria de ver qual coleção?");
+        showQuickReplies(["Gurulino", "Brixx", "Flona", "Clássicos de BSB"]);
         return;
     }
     if (t.includes("acessório") || t === "acessórios") {
-        botMessage("Temos bonés, bolsas e bijuterias. Quer ver bonés ou bolsas?");
-        showQuickReplies(["Bonés", "Bolsas", "Bijuterias"]);
+        botMessage("Temos Bonés & Buckets, Bolsas & Ecobags, Meias, Chinelos & Sandálias. O que gostaria de ver?");
+        showQuickReplies(["Bonés & Buckets", "Bolsas & Ecobags", "Meias", "Chinelos & Sandálias"]);
         return;
     }
     if (t.includes("oferta") || t.includes("promoção") || t === "ofertas do dia") {
@@ -156,15 +170,25 @@ function simulateResponse(text) {
         });
         return;
     }
+    if (t.includes("vestidos") || t.includes("vestido")) {
+        botMessage("Ótimo! Veja algumas opções de vestidos:");
+        showProduct({
+            image: "./img/vestidos.png",
+            title: "Vestidos Verdurão - A partir R$389,90",
+            price: "R$389,90",
+            url: "https://vistaverdurao.com.br/collections/colecao-vestidos"
+        });
+        return;
+    }
 
     // cores
     if (t.includes("cor branca") || t.includes("branca")) {
         botMessage("Ótimo! Veja algumas camisetas brancas que combinam com tudo:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
-            title: "Camiseta Branca Clássica - R$49,90",
-            price: "R$49,90",
-            url: "#"
+            image: "./img/camiseta_branca.png",
+            title: "Camiseta Branca Clássica - R$169,90",
+            price: "R$169,90",
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-nascido-e-criado-no-df"
         });
         return;
     }
@@ -172,62 +196,129 @@ function simulateResponse(text) {
     if (t.includes("cor preta") || t.includes("preta")) {
         botMessage("Ótimo! Veja algumas camisetas pretas que combinam com tudo:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
-            title: "Camiseta Preta Clássica - R$49,90",
-            price: "R$49,90",
-            url: "#"
+            image: "./img/camisa_preta.png",
+            title: "Camiseta Preta Clássica - R$159,90",
+            price: "R$159,90",
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-lobo-saltando"
         });
         return;
     }
     if (t.includes("cor azul") || t.includes("azul")) {
         botMessage("Ótimo! Veja algumas camisetas azuis que você pode gostar:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
-            title: "Camiseta Azul Clássica - R$49,90",
-            price: "R$49,90",
-            url: "#"
+            image: "./img/camisa_azul.png",
+            title: "Camiseta Azul Clássica - R$159,90",
+            price: "R$159,90",
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-homem-boiando"
         });
         return;
     }
     if (t.includes("cor vermelha") || t.includes("vermelha")) {
         botMessage("Ótimo! Veja algumas camisetas vermelhas que você pode gostar:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
-            title: "Camiseta Vermelha Clássica - R$49,90",
-            price: "R$49,90",
-            url: "#"
+            image: "./img/camisa_vermelha.png",
+            title: "Camiseta Vermelha Clássica - R$189,90",
+            price: "R$189,90",
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-quadra"
+        });
+        return;
+    }
+
+    if (t.includes("estampada") || t.includes("estampa")) {
+        botMessage("Ótimo! Veja algumas camisetas estampadas que você pode gostar:");
+        showProduct({
+            image: "./img/camiseta_estampada.png",
+            title: "Camisetas Estampadas Clássicas - A partir de: R$119,90",
+            price: "R$119,90",
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao"
         });
         return;
     }
         
-    if (t.includes("jeans")) {
-        botMessage("Jeans — estilo e conforto. Veja essas opções:");
+    if (t.includes("gurulino")) {
+        botMessage("Ótima escolha! Coleção Gurulino disponível:");
         showProduct({
-            image: "./img/calca-jeans.jpg",
-            title: "Jeans Reto - R$129,90",
-            price: "R$129,90",
-            url: "#"
+            image: "./img/gurulino.png",
+            title: "Coleção GURULINO - A Partir de: R$199,90",
+            price: "R$199,90",
+            url: "https://vistaverdurao.com.br/collections/t-shirts-gurulino"
         });
         return;
     }
-    if (t.includes("moletom")) {
-        botMessage("Moletom — estilo e conforto. Veja essas opções:");
+
+    if (t.includes("brixx")) {
+        botMessage("Ótima escolha! Coleção Brixx disponível:");
         showProduct({
-            image: "./img/calca-jeans.jpg",
-            title: "Moletom - R$129,90",
-            price: "R$129,90",
-            url: "#"
+            image: "./img/brixx.png",
+            title: "Coleção BRIXX - A Partir de: R$189,90",
+            price: "R$189,90",
+            url: "https://vistaverdurao.com.br/collections/brixx"
+        });
+        return;
+    }
+
+    if (t.includes("flona")) {
+        botMessage("Ótima escolha! Coleção Flona disponível:");
+        showProduct({
+            image: "./img/flona.png",
+            title: "Coleção FLONA - A partir de: R$149,95",
+            price: "R$149,95",
+            url: "https://vistaverdurao.com.br/collections/flona"
+        });
+        return;
+    }
+
+    if (t.includes("clássicos de bsb") || t.includes("classicos")) {
+        botMessage("Ótima escolha! Coleção Clássicos de BSB disponível:");
+        showProduct({
+            image: "./img/classicos.png",
+            title: "Clássicos de BSB - A partir de: R$119,90",
+            price: "R$119,90",
+            url: "https://vistaverdurao.com.br/collections/classicos-de-bsb"
         });
         return;
     }
     
-    if (t.includes("boné") || t.includes("bones")) {
-        botMessage("Bonés disponíveis:");
+    if (t.includes("boné") || t.includes("boné")) {
+        botMessage("Bonés & Buckets disponíveis:");
         showProduct({
-            image: "./img/acessorio.jpg",
-            title: "Boné Vista - R$39,90",
-            price: "R$39,90",
-            url: "#"
+            image: "./img/bones.png",
+            title: "Boné Vista - R$159,90",
+            price: "R$159,90",
+            url: "https://vistaverdurao.com.br/collections/bones-e-buckets"
+        });
+        return;
+    }
+
+    if (t.includes("meias") || t.includes("meias")) {
+        botMessage("Ótima escolha! Meias disponíveis:");
+        showProduct({
+            image: "./img/meias.png",
+            title: "Meia Vista - R$79,90",
+            price: "R$79,90",
+            url: "https://vistaverdurao.com.br/collections/meias"
+        });
+        return;
+    }
+
+    if (t.includes("chinelos e sandálias") || t.includes("chinelos") || t.includes("sandálias")) {
+        botMessage("Ótima escolha! Chinelos e Sandálias disponíveis:");
+        showProduct({
+            image: "./img/chinelo.png",
+            title: "Sandálias Vista - R$169,90 - 89,90",
+            price: "R$169,90 - 89,90",
+            url: "https://vistaverdurao.com.br/collections/chinelos-e-sandalias"
+        });
+        return;
+    }
+
+    if (t.includes("Ecobags e bolsas") || t.includes("ecobags") || t.includes("bolsas")) {
+        botMessage("Ótima escolha! Ecobags e Bolsas disponíveis:");
+        showProduct({
+            image: "./img/bolsas.png",
+            title: "Bolsas e Ecobags Vista - A partir de R$189,90",
+            price: "R$189,90",
+            url: "https://vistaverdurao.com.br/collections/bolsas"
         });
         return;
     }
@@ -268,6 +359,6 @@ function simulateResponse(text) {
     }
 
     // fallback genérico
-    botMessage("Entendi! Que tipo de produto você procura? (Camisetas, Calças, Acessórios, Ofertas)");
-    showQuickReplies(["Camisetas", "Calças", "Acessórios", "Ofertas do dia"]);
+    botMessage("Entendi! Que tipo de produto você procura? (Camisetas, Coleções, Acessórios, Ofertas)");
+    showQuickReplies(["Camisetas", "Vestidos", "Coleções", "Acessórios", "Ofertas do dia"]);
 }
