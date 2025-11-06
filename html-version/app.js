@@ -151,22 +151,22 @@ function simulateResponse(text) {
     if (t.includes("oferta") || t.includes("promoção") || t === "ofertas do dia") {
         botMessage("Aqui estão as ofertas do dia:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
+            image: "./img/camiseta_branca.png",
             title: "Camiseta Básica - R$49,90",
             price: "R$49,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-nascido-e-criado-no-df"
         });
         showProduct({
-            image: "./img/calca-jeans.jpg",
-            title: "Calça Jeans - R$119,90",
+            image: "./img/vestidos.png",
+            title: "Vestido - R$119,90",
             price: "R$119,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/colecao-vestidos"
         });
         showProduct({
-            image: "./img/acessorio.jpg",
-            title: "Boné Verde - R$39,90",
+            image: "./img/bone_azul.png",
+            title: "Boné Azul - R$39,90",
             price: "R$39,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/bones-e-buckets/products/bone-bsbonde"
         });
         return;
     }
