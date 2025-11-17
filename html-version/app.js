@@ -15,7 +15,7 @@ OPEN_BTN.addEventListener("click", () => {
     OPEN_BTN.style.display = "none";
     if (!WIDGET.dataset.welcomed) {
         botMessage("Bem-vindo à Vista Verdurão! 🌿<br>O que você gostaria de comprar hoje?");
-        showQuickReplies(["Camisetas", "Vestidos", "Coleções", "Acessórios", "Ofertas do dia"]);
+        showQuickReplies(["Camisetas", "Vestidos", "Coleções", "Acessórios", "Ofertas do dia", "Informações"]);
         WIDGET.dataset.welcomed = "1";
     }
 });
@@ -105,6 +105,7 @@ async function handleUserMessage(text) {
 function showProduct(prod) {
     const card = document.createElement("div");
     card.className = "produto-card";
+    card.id = "produto-card"
     card.innerHTML = `
     <img src="${prod.image}" alt="${prod.title}">
     <div><strong>${prod.title}</strong></div>
@@ -125,14 +126,14 @@ function simulateResponse(text) {
         showQuickReplies(["Masculino", "Feminino"]);
         return;
     }
-    
+
     if (t.includes("Masculino") || t === "masculino") {
         botMessage("Perfeito! Alguma preferência de cor?");
         showQuickReplies(["Cor Branca", "Cor Preta", "Cor Azul", "Cor Vermelha", "Estampada"]);
         return;
     }
 
-     if (t.includes("Feminino") || t === "feminino") {
+    if (t.includes("Feminino") || t === "feminino") {
         botMessage("Perfeito! Alguma preferência de cor?");
         showQuickReplies(["Cor Branca", "Cor Preta", "Cor Azul", "Cor Vermelha", "Estampada"]);
         return;
@@ -151,22 +152,22 @@ function simulateResponse(text) {
     if (t.includes("oferta") || t.includes("promoção") || t === "ofertas do dia") {
         botMessage("Aqui estão as ofertas do dia:");
         showProduct({
-            image: "./img/camiseta-branca.jpg",
+            image: "./img/camiseta_branca.png",
             title: "Camiseta Básica - R$49,90",
             price: "R$49,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/camisetas-verdurao/products/camiseta-nascido-e-criado-no-df"
         });
         showProduct({
-            image: "./img/calca-jeans.jpg",
-            title: "Calça Jeans - R$119,90",
+            image: "./img/vestidos.png",
+            title: "Vestido - R$119,90",
             price: "R$119,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/colecao-vestidos"
         });
         showProduct({
-            image: "./img/acessorio.jpg",
-            title: "Boné Verde - R$39,90",
+            image: "./img/bone_azul.png",
+            title: "Boné Azul - R$39,90",
             price: "R$39,90",
-            url: "#"
+            url: "https://vistaverdurao.com.br/collections/bones-e-buckets/products/bone-bsbonde"
         });
         return;
     }
@@ -181,6 +182,17 @@ function simulateResponse(text) {
         return;
     }
 
+    if (t.includes("informações") || t.includes("informacoes") || t.includes("informação") || t.includes("informacao")) {
+        botMessage("Redirecionando para a central de atendimento...");
+        const phone = "5561981281510";       // número no formato internacional (sem +)
+        const message = "Olá, gostaria de mais informações...";               // mensagem desejada
+        const encoded = encodeURIComponent(message);
+
+        const url = `https://wa.me/${phone}?text=${encoded}`;
+        window.open(url, "_blank");
+        return;
+    }
+
     // cores
     if (t.includes("cor branca") || t.includes("branca")) {
         botMessage("Ótimo! Veja algumas camisetas brancas que combinam com tudo:");
@@ -192,7 +204,7 @@ function simulateResponse(text) {
         });
         return;
     }
-    
+
     if (t.includes("cor preta") || t.includes("preta")) {
         botMessage("Ótimo! Veja algumas camisetas pretas que combinam com tudo:");
         showProduct({
@@ -234,7 +246,7 @@ function simulateResponse(text) {
         });
         return;
     }
-        
+
     if (t.includes("gurulino")) {
         botMessage("Ótima escolha! Coleção Gurulino disponível:");
         showProduct({
@@ -278,7 +290,7 @@ function simulateResponse(text) {
         });
         return;
     }
-    
+
     if (t.includes("boné") || t.includes("boné")) {
         botMessage("Bonés & Buckets disponíveis:");
         showProduct({
@@ -335,7 +347,7 @@ function simulateResponse(text) {
         return;
     }
 
-     // perguntas de eventos/clima
+    // perguntas de eventos/clima
     if (t.includes("praia") || t.includes("quente")) {
         botMessage("Para praia recomendamos roupas de banho. Deseja ver?");
         showQuickReplies(["Sim, mostrar camisetas leves", "Não, outras opções"]);
@@ -362,3 +374,20 @@ function simulateResponse(text) {
     botMessage("Entendi! Que tipo de produto você procura? (Camisetas, Coleções, Acessórios, Ofertas)");
     showQuickReplies(["Camisetas", "Vestidos", "Coleções", "Acessórios", "Ofertas do dia"]);
 }
+
+function ExpandChat() {
+    const widget = document.getElementById("chat-widget");
+    const toggle = document.getElementById("chat-toggle");
+
+    if (widget.classList.contains("closed")) {
+        widget.classList.remove("closed");
+        if (toggle) toggle.style.display = "none";
+    }
+
+    widget.classList.toggle("expanded");
+}
+
+
+
+
+

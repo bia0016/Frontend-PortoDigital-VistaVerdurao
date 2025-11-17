@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
 
     <!-- WIDGET -->
     <div id="chat-widget" class="closed" role="dialog" aria-label="Chatbot Vista Verdurão">
-        <header class="chat-header">
+        <header class="chat-header" id="chat-header">
             <div class="brand">
                 <div class="avatar">A</div>
                 <div class="title">
@@ -27,14 +28,18 @@
                     <small>Assistente de Looks</small>
                 </div>
             </div>
-            <button id="chat-close" aria-label="Fechar chat">✕</button>
+            <div class="buttons">
+                <button id="chat-close" class="bi bi-x-lg" aria-label="Fechar chat"></button>
+                <button id="chat-expand" class="bi bi-arrows-angle-expand" onclick="ExpandChat()"></button>
+            </div>
         </header>
 
         <main id="messages" class="chat-body" aria-live="polite"></main>
 
         <footer class="chat-footer">
             <form id="chat-form">
-                <input id="chat-input" autocomplete="off" placeholder="Escreva uma mensagem..." style="font-family: 'Source Sans 3';" />
+                <input id="chat-input" autocomplete="off" placeholder="Escreva uma mensagem..."
+                    style="font-family: 'Source Sans 3';" />
                 <button type="submit" id="send-btn" style="font-family: 'Source Sans 3';">Enviar</button>
             </form>
         </footer>
